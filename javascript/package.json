@@ -1,6 +1,6 @@
 {
   "name": "@ln-markets/maths",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "LN Markets mathematic formula",
   "repository": {
     "type": "git",
@@ -28,8 +28,7 @@
   "type": "module",
   "main:": "src/index.js",
   "files": [
-    "src/**/*.js",
-    "test/**/*.js"
+    "src/**/*.js"
   ],
   "imports": {
     "#src/*": "./src/*"
