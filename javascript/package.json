@@ -1,0 +1,72 @@
+{
+  "name": "@ln-markets/maths",
+  "version": "1.0.0",
+  "description": "LN Markets mathematic formula",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ln-markets/maths.git"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": "Victor Afanassieff",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ln-markets/maths/issues"
+  },
+  "homepage": "https://github.com/ln-markets/maths#readme",
+  "keywords": [
+    "ln-markets",
+    "LN Markets",
+    "trading",
+    "maths"
+  ],
+  "engines": {
+    "node": ">=14",
+    "pnpm": ">=6"
+  },
+  "type": "module",
+  "main:": "src/index.js",
+  "files": [
+    "src/**/*.js",
+    "test/**/*.js"
+  ],
+  "imports": {
+    "#src/*": "./src/*"
+  },
+  "exports": {
+    ".": "./src/index.js"
+  },
+  "scripts": {
+    "test": "mocha test/index.js --bail --exit",
+    "prepare": "cd .. && husky install javascript/.husky",
+    "eslint": "eslint --fix",
+    "prettier": "prettier --write",
+    "lint": "eslint --color './src/**/*.js'",
+    "format": "prettier --write './**/*.{js}'"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "16.2.3",
+    "@commitlint/config-conventional": "16.2.1",
+    "chai": "4.3.6",
+    "eslint": "8.13.0",
+    "eslint-config-prettier": "8.5.0",
+    "eslint-import-resolver-alias": "1.1.2",
+    "eslint-plugin-chai-friendly": "0.7.2",
+    "eslint-plugin-eslint-comments": "3.2.0",
+    "eslint-plugin-import": "2.26.0",
+    "eslint-plugin-jsdoc": "39.2.3",
+    "eslint-plugin-mocha": "10.0.4",
+    "eslint-plugin-no-autofix": "1.2.3",
+    "eslint-plugin-prefer-arrow": "1.2.3",
+    "eslint-plugin-prettier": "4.0.0",
+    "eslint-plugin-promise": "6.0.0",
+    "eslint-plugin-sonarjs": "0.13.0",
+    "eslint-plugin-tailwindcss": "3.5.0",
+    "eslint-plugin-unicorn": "42.0.0",
+    "husky": "7.0.4",
+    "lint-staged": "12.1.3",
+    "mocha": "9.2.2",
+    "prettier": "2.6.2"
+  }
+}

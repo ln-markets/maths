@@ -1,2 +1,57 @@
-# marhs
-LN Markets formula used to do maths relative to trading
+# Maths
+
+<p align="center">
+  <a href="https://twitter.com/LNMarkets">
+    <img src="https://img.shields.io/twitter/follow/LNMarkets?style=social"
+        alt="Follow us on Twitter">
+  </a>
+</p>
+
+This repo contain mathematical formula for LN Markets in different languages such as :
+
+- [Javascript](./javascript/README.md)
+
+Python version comming soon
+
+## Futures
+
+#### computePl
+
+Compute the PL of a position with the bid and offer
+
+```yaml
+position:
+  type: Object
+  required: true
+  params:
+    side:
+      type: String
+      required: true
+      enum: ["b", "s"]
+    quantity:
+      type: Integer
+      required: true
+    price:
+      type: Integer
+      required: true
+market:
+  type: Object
+  required: true
+  params:
+    offer:
+      type: Integer
+      required: true
+    bid:
+      type: Float
+      required: true
+```
+
+## Options
+
+### computeDelta
+
+Delta of an option at given market price
+
+### computeMarkToMarket
+
+Pl of an option at given market price

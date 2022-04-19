@@ -1,0 +1,29 @@
+{
+    "editor.formatOnSave": true,
+    "eslint.validate": [
+        "javascript",
+    ],
+    "eslint.options": {
+        "extensions": [
+            ".js",
+        ]
+    },
+    "eslint.workingDirectories": [
+        {
+            "directory": "js",
+            "changeProcessCWD": true
+        },
+    ],
+    "eslint.format.enable": true,
+    "eslint.codeAction.showDocumentation": {
+        "enable": true
+    },
+    "javascript.validate.enable": false,
+    "javascript.format.enable": false,
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    },
+    "editor.quickSuggestions": {
+        "strings": true
+    }
+}

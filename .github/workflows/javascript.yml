@@ -1,0 +1,54 @@
+name: javascript
+
+on:
+  push:
+    paths:
+      - "javascript/**"
+    tags-ignore:
+      - "v*.*.*"
+    branches:
+      - "master"
+  pull_request:
+    branches:
+      - "master"
+
+defaults:
+  run:
+    working-directory: ./javascript
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: ["14", "16"]
+    name: Test Node v${{ matrix.node }} version
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup node
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node }}
+
+      - name: Cache pnpm modules
+        uses: actions/cache@v2
+        with:
+          path: ~/.pnpm-store
+          key: ${{ runner.os }}-${{ hashFiles('js/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2.0.1
+        with:
+          version: 6
+
+      - name: Install packages
+        run: pnpm install --frozen-lockfile --ignore-script
+
+      - name: Lint the sources
+        run: pnpm lint
+
+      - name: Run the tests
+        run: pnpm test
