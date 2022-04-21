@@ -10,7 +10,7 @@ specifiers:
   eslint-plugin-chai-friendly: 0.7.2
   eslint-plugin-eslint-comments: 3.2.0
   eslint-plugin-import: 2.26.0
-  eslint-plugin-jsdoc: 39.2.6
+  eslint-plugin-jsdoc: 39.2.7
   eslint-plugin-mocha: 10.0.4
   eslint-plugin-no-autofix: 1.2.3
   eslint-plugin-prefer-arrow: 1.2.3
@@ -34,7 +34,7 @@ devDependencies:
   eslint-plugin-chai-friendly: 0.7.2_eslint@8.13.0
   eslint-plugin-eslint-comments: 3.2.0_eslint@8.13.0
   eslint-plugin-import: 2.26.0_eslint@8.13.0
-  eslint-plugin-jsdoc: 39.2.6_eslint@8.13.0
+  eslint-plugin-jsdoc: 39.2.7_eslint@8.13.0
   eslint-plugin-mocha: 10.0.4_eslint@8.13.0
   eslint-plugin-no-autofix: 1.2.3_eslint@8.13.0
   eslint-plugin-prefer-arrow: 1.2.3_eslint@8.13.0
@@ -1087,8 +1087,8 @@ packages:
       tsconfig-paths: 3.14.1
     dev: true
 
-  /eslint-plugin-jsdoc/39.2.6_eslint@8.13.0:
-    resolution: {integrity: sha512-bPeKh0p+Gko3uBmJkP6FnY75v7WMPwFsVYZgh0CisT6apOJzS30zyAyy4phWly8JGgnz+9dwgaYgr+KDObUA6g==}
+  /eslint-plugin-jsdoc/39.2.7_eslint@8.13.0:
+    resolution: {integrity: sha512-vLaNFVbhoUrAX2f7gKpzALEWaDCiGGydlPYzrZLVlWXdUm6UZdJq3GKlYEoI9Q/eL66cPbHukaQHD4MQ1/T8rg==}
     engines: {node: ^14 || ^16 || ^17 || ^18}
     peerDependencies:
       eslint: ^7.0.0 || ^8.0.0
