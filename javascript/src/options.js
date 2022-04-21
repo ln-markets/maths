@@ -150,19 +150,26 @@ const computePrice = (
  * @param {number} trade.expiry_ts - Trade expiration
  * @param {number} trade.forward - Trade forward
  * @param {number} trade.forward_point - Trade forward point
- * @param {object} leg - Trade leg
- * @param {string} leg.side - Leg side b or s
- * @param {string} leg.type - Leg type p or c
- * @param {number} leg.volatility - Leg volatility in decimal (ie 0.5)
- * @param {number} leg.quantity - Leg quantity in domestic currency
- * @param {number} leg.strike - Leg strike
+ * @param {string} trade.side - Leg side b or s
+ * @param {string} trade.type - Leg type p or c
+ * @param {number} trade.volatility - Leg volatility in decimal (ie 0.5)
+ * @param {number} trade.quantity - Leg quantity in domestic currency
+ * @param {number} trade.strike - Leg strike
  * @param {object} market Futures bid and offer object
  * @returns {number} Mark to Market of the trade
  */
-export const computeMarkToMarket = (trade, leg, market) => {
+export const computeVanillaOptionMarketToMarket = (trade, market) => {
   const { bid, offer } = market
-  const { domestic, expiry_ts, forward_point = 0 } = trade
-  const { side, quantity, strike, type, volatility } = leg
+  const {
+    domestic,
+    expiry_ts,
+    forward_point = 0,
+    side,
+    quantity,
+    strike,
+    type,
+    volatility,
+  } = trade
 
   const forward = type === 'c' ? offer : bid
   const creation_ts = Date.now()
@@ -191,19 +198,28 @@ export const computeMarkToMarket = (trade, leg, market) => {
  * @param {number} trade.expiry_ts - Trade expiration
  * @param {number} trade.forward - Trade forward
  * @param {number} trade.forward_point - Trade forward point
- * @param {object} leg - Trade leg
- * @param {string} leg.side - Leg side b or s
- * @param {string} leg.type - Leg type p or c
- * @param {number} leg.volatility - Leg volatility in decimal (ie 0.5)
- * @param {number} leg.quantity - Leg quantity in domestic currency
- * @param {number} leg.strike - Leg strike
+ * @param {string} trade.side - Leg side b or s
+ * @param {string} trade.type - Leg type p or c
+ * @param {number} trade.volatility - Leg volatility in decimal (ie 0.5)
+ * @param {number} trade.quantity - Leg quantity in domestic currency
+ * @param {number} trade.strike - Leg strike
  * @param {object} market Futures bid and offer object
  * @returns {number} delta of the trade
  */
-export const computeDelta = (trade, leg, market) => {
+export const computeVanillaOptionDelta = (trade, market) => {
   const { bid, offer } = market
-  const { side, type, volatility, quantity, strike } = leg
-  const { domestic, expiry_ts, forward_point = 0, spot } = trade
+
+  const {
+    domestic,
+    expiry_ts,
+    forward_point = 0,
+    spot,
+    side,
+    type,
+    volatility,
+    quantity,
+    strike,
+  } = trade
 
   const forward = type === 'c' ? offer : bid
   const creation_ts = Date.now()
@@ -222,5 +238,5 @@ export const computeDelta = (trade, leg, market) => {
     return quantity * -delta
   }
 
-  return quantity * delta - computeMarkToMarket(trade, leg, market)
+  return quantity * delta - computeVanillaOptionMarketToMarket(trade, market)
 }
