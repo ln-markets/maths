@@ -12,7 +12,10 @@ import { SATOSHI } from './const.js'
  * @param {number} market.offer LN Markets offer
  * @returns {number} Position pl
  */
-export const computePl = ({ side, quantity, price }, { bid, offer }) => {
+export const computeFuturesPositionPl = (position, market) => {
+  const { side, quantity, price } = position
+  const { bid, offer } = market
+
   const sign = side === 'b' ? 1 : -1
   const current = side === 'b' ? bid : offer
 

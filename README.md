@@ -15,7 +15,7 @@ Python version comming soon
 
 ## Futures
 
-#### computePl
+#### computeFuturesPositionPl
 
 Compute the PL of a position with the bid and offer
 
@@ -48,10 +48,44 @@ market:
 
 ## Options
 
-### computeDelta
+### computeVanillaOptionDelta
 
 Delta of an option at given market price
 
-### computeMarkToMarket
+```yaml
+# LN Markets options trade object
+trades:
+  type: Object
+  required: true
+market:
+  type: Object
+  required: true
+  params:
+    offer:
+      type: Integer
+      required: true
+    bid:
+      type: Float
+      required: true
+```
+
+### computeVanillaOptionPl
 
 Pl of an option at given market price
+
+```yaml
+# LN Markets options trade object
+trades:
+  type: Object
+  required: true
+market:
+  type: Object
+  required: true
+  params:
+    offer:
+      type: Integer
+      required: true
+    bid:
+      type: Float
+      required: true
+```

@@ -1,3 +1,3 @@
-export { computePl } from './futures.js'
+export { computeFuturesPositionPl } from './futures.js'
 
-export { computeDelta, computeMarkToMarket } from './options.js'
+export { computeVanillaOptionDelta, computeVanillaOptionPl } from './options.js'

@@ -147,6 +147,7 @@ const computePrice = (
  *
  * @param {object} trade - Trade parameters
  * @param {string} trade.domestic - Domestic currency
+ * @param {number} trade.creation_ts - Trade creation to compute maturity
  * @param {number} trade.expiry_ts - Trade expiration
  * @param {number} trade.forward - Trade forward
  * @param {number} trade.forward_point - Trade forward point
@@ -156,16 +157,11 @@ const computePrice = (
  * @param {number} leg.volatility - Leg volatility in decimal (ie 0.5)
  * @param {number} leg.quantity - Leg quantity in domestic currency
  * @param {number} leg.strike - Leg strike
- * @param {object} market Futures bid and offer object
- * @returns {number} Mark to Market of the trade
+ * @returns {number} MTM of the trade
  */
-export const computeMarkToMarket = (trade, leg, market) => {
-  const { bid, offer } = market
-  const { domestic, expiry_ts, forward_point = 0 } = trade
+export const computeMarkToMarket = (trade, leg) => {
+  const { domestic, expiry_ts, creation_ts, forward, forward_point = 0 } = trade
   const { side, quantity, strike, type, volatility } = leg
-
-  const forward = type === 'c' ? offer : bid
-  const creation_ts = Date.now()
 
   const p = computePrice(
     { domestic, expiry_ts, creation_ts, forward, forward_point },
@@ -188,6 +184,7 @@ export const computeMarkToMarket = (trade, leg, market) => {
  *
  * @param {object} trade - Trade parameters
  * @param {string} trade.domestic - Domestic currency
+ * @param {number} trade.creation_ts - Trade creation to compute maturity
  * @param {number} trade.expiry_ts - Trade expiration
  * @param {number} trade.forward - Trade forward
  * @param {number} trade.forward_point - Trade forward point
@@ -197,21 +194,16 @@ export const computeMarkToMarket = (trade, leg, market) => {
  * @param {number} leg.volatility - Leg volatility in decimal (ie 0.5)
  * @param {number} leg.quantity - Leg quantity in domestic currency
  * @param {number} leg.strike - Leg strike
- * @param {object} market Futures bid and offer object
  * @returns {number} delta of the trade
  */
-export const computeDelta = (trade, leg, market) => {
-  const { bid, offer } = market
+export const computeDelta = (trade, leg) => {
   const { side, type, volatility, quantity, strike } = leg
-  const { domestic, expiry_ts, forward_point = 0, spot } = trade
-
-  const forward = type === 'c' ? offer : bid
-  const creation_ts = Date.now()
+  const { domestic, creation_ts, expiry_ts, forward, forward_point = 0 } = trade
 
   const delta =
     bs_delta({
       type: computeType({ domestic, type }),
-      S: S({ forward: forward || spot, forward_point, domestic }),
+      S: S({ forward, forward_point, domestic }),
       K: K({ domestic, strike }),
       T: T({ expiry_ts, creation_ts }),
       v: volatility,
@@ -222,5 +214,41 @@ export const computeDelta = (trade, leg, market) => {
     return quantity * -delta
   }
 
-  return quantity * delta - computeMarkToMarket(trade, leg, market)
+  return quantity * delta - computeMarkToMarket(trade, leg)
+}
+
+/**
+ * Compute Vanilla Options PL with the current market state
+ *
+ * @param {object} trade LN Markets trade from API
+ * @param {object} market Futures bid and offer object
+ * @returns {number} Vanilla option PL
+ */
+export const computeVanillaOptionPl = (trade, market) => {
+  const { bid, offer } = market
+  const forward = trade.type === 'c' ? bid : offer
+  const creation_ts = Date.now()
+
+  return (
+    Number.parseInt(
+      computeMarkToMarket({ ...trade, forward, creation_ts }, trade)
+    ) - trade.margin
+  )
+}
+
+/**
+ * Compute Vanilla Option delta with current market state
+ *
+ * @param {object} trade LN Markets trade from API
+ * @param {object} market Futures bid and offer object
+ * @returns {number} Vanilla option delta
+ */
+export const computeVanillaOptionDelta = (trade, market) => {
+  const { bid, offer } = market
+  const forward = trade.type === 'c' ? bid : offer
+  const creation_ts = Date.now()
+
+  return Number.parseInt(
+    computeDelta({ ...trade, forward, creation_ts }, trade)
+  )
 }
