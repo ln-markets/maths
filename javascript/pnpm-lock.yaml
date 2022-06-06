@@ -11,7 +11,7 @@ specifiers:
   eslint-plugin-eslint-comments: 3.2.0
   eslint-plugin-import: 2.26.0
   eslint-plugin-jsdoc: 39.3.2
-  eslint-plugin-mocha: 10.0.4
+  eslint-plugin-mocha: 10.0.5
   eslint-plugin-no-autofix: 1.2.3
   eslint-plugin-prefer-arrow: 1.2.3
   eslint-plugin-prettier: 4.0.0
@@ -35,7 +35,7 @@ devDependencies:
   eslint-plugin-eslint-comments: 3.2.0_eslint@8.17.0
   eslint-plugin-import: 2.26.0_eslint@8.17.0
   eslint-plugin-jsdoc: 39.3.2_eslint@8.17.0
-  eslint-plugin-mocha: 10.0.4_eslint@8.17.0
+  eslint-plugin-mocha: 10.0.5_eslint@8.17.0
   eslint-plugin-no-autofix: 1.2.3_eslint@8.17.0
   eslint-plugin-prefer-arrow: 1.2.3_eslint@8.17.0
   eslint-plugin-prettier: 4.0.0_ucegkljdju7q4zmvwxzqoprf3y
@@ -1135,15 +1135,15 @@ packages:
       - supports-color
     dev: true
 
-  /eslint-plugin-mocha/10.0.4_eslint@8.17.0:
-    resolution: {integrity: sha512-8wzAeepVY027oBHz/TmBmUr7vhVqoC1KTFeDybFLhbaWKx+aQ7fJJVuUsqcUy+L+G+XvgQBJY+cbAf7hl5DF7Q==}
+  /eslint-plugin-mocha/10.0.5_eslint@8.17.0:
+    resolution: {integrity: sha512-H5xuD5NStlpaKLqUWYC5BsMx8fHgrIYsdloFbONUTc2vgVNiJcWdKoX29Tt0BO75QgAltplPLIziByMozGGixA==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
       eslint: '>=7.0.0'
     dependencies:
       eslint: 8.17.0
       eslint-utils: 3.0.0_eslint@8.17.0
-      ramda: 0.28.0
+      rambda: 7.1.4
     dev: true
 
   /eslint-plugin-no-autofix/1.2.3_eslint@8.17.0:
@@ -2512,8 +2512,8 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
-  /ramda/0.28.0:
-    resolution: {integrity: sha512-9QnLuG/kPVgWvMQ4aODhsBUFKOUmnbUnsSXACv+NCQZcHbeb+v8Lodp8OVxtRULN1/xOyYLLaL6npE6dMq5QTA==}
+  /rambda/7.1.4:
+    resolution: {integrity: sha512-bPK8sSiVHIC7CqdWga8R+hRi5hfc4hK6S01lZW4KrLwSNryQoKaCOJA9GNiF20J7Nbe1vejRfR37/ASQXFL5EA==}
     dev: true
 
   /randombytes/2.1.0:
