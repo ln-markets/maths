@@ -14,7 +14,7 @@ specifiers:
   eslint-plugin-mocha: 10.0.5
   eslint-plugin-no-autofix: 1.2.3
   eslint-plugin-prefer-arrow: 1.2.3
-  eslint-plugin-prettier: 4.0.0
+  eslint-plugin-prettier: 4.2.1
   eslint-plugin-promise: 6.0.0
   eslint-plugin-sonarjs: 0.13.0
   eslint-plugin-tailwindcss: 3.5.2
@@ -38,7 +38,7 @@ devDependencies:
   eslint-plugin-mocha: 10.0.5_eslint@8.17.0
   eslint-plugin-no-autofix: 1.2.3_eslint@8.17.0
   eslint-plugin-prefer-arrow: 1.2.3_eslint@8.17.0
-  eslint-plugin-prettier: 4.0.0_hsbo72uvra2cjko46y2c4fgzzm
+  eslint-plugin-prettier: 4.2.1_hsbo72uvra2cjko46y2c4fgzzm
   eslint-plugin-promise: 6.0.0_eslint@8.17.0
   eslint-plugin-sonarjs: 0.13.0_eslint@8.17.0
   eslint-plugin-tailwindcss: 3.5.2
@@ -1165,9 +1165,9 @@ packages:
       eslint: 8.17.0
     dev: true
 
-  /eslint-plugin-prettier/4.0.0_hsbo72uvra2cjko46y2c4fgzzm:
-    resolution: {integrity: sha512-98MqmCJ7vJodoQK359bqQWaxOE0CS8paAz/GgjaZLyex4TTk3g9HugoO89EqWCrFiOqn9EVvcoo7gZzONCWVwQ==}
-    engines: {node: '>=6.0.0'}
+  /eslint-plugin-prettier/4.2.1_hsbo72uvra2cjko46y2c4fgzzm:
+    resolution: {integrity: sha512-f/0rXLXUt0oFYs8ra4w49wYZBG5GKZpAYsJSm6rnYL5uVDjd+zowwMwVZHnAjf4edNrKpCDYfXDgmRE/Ak7QyQ==}
+    engines: {node: '>=12.0.0'}
     peerDependencies:
       eslint: '>=7.28.0'
       eslint-config-prettier: '*'
