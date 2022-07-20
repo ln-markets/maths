@@ -11,7 +11,7 @@ specifiers:
   eslint-plugin-eslint-comments: 3.2.0
   eslint-plugin-import: 2.26.0
   eslint-plugin-jsdoc: 39.3.2
-  eslint-plugin-mocha: 10.0.5
+  eslint-plugin-mocha: 10.1.0
   eslint-plugin-no-autofix: 1.2.3
   eslint-plugin-prefer-arrow: 1.2.3
   eslint-plugin-prettier: 4.0.0
@@ -35,7 +35,7 @@ devDependencies:
   eslint-plugin-eslint-comments: 3.2.0_eslint@8.17.0
   eslint-plugin-import: 2.26.0_eslint@8.17.0
   eslint-plugin-jsdoc: 39.3.2_eslint@8.17.0
-  eslint-plugin-mocha: 10.0.5_eslint@8.17.0
+  eslint-plugin-mocha: 10.1.0_eslint@8.17.0
   eslint-plugin-no-autofix: 1.2.3_eslint@8.17.0
   eslint-plugin-prefer-arrow: 1.2.3_eslint@8.17.0
   eslint-plugin-prettier: 4.0.0_hsbo72uvra2cjko46y2c4fgzzm
@@ -1135,8 +1135,8 @@ packages:
       - supports-color
     dev: true
 
-  /eslint-plugin-mocha/10.0.5_eslint@8.17.0:
-    resolution: {integrity: sha512-H5xuD5NStlpaKLqUWYC5BsMx8fHgrIYsdloFbONUTc2vgVNiJcWdKoX29Tt0BO75QgAltplPLIziByMozGGixA==}
+  /eslint-plugin-mocha/10.1.0_eslint@8.17.0:
+    resolution: {integrity: sha512-xLqqWUF17llsogVOC+8C6/jvQ+4IoOREbN7ZCHuOHuD6cT5cDD4h7f2LgsZuzMAiwswWE21tO7ExaknHVDrSkw==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
       eslint: '>=7.0.0'
